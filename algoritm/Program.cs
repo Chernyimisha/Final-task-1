@@ -1,15 +1,26 @@
 ﻿Console.WriteLine("Введите количество элементов массива: ");
 int size1 = Convert.ToInt32(Console.ReadLine());
-string[] array1 = CreateArray1(size1);
-PrintArray(array1);
-int size2 = SizeArray2Count(array1);
-string[] array2 = CreateArray2(array1,size2);
-PrintArray(array2);
 
-string[] CreateArray1(int num)
+if(size1>0)
 {
-    string[] arr = new string[num];
-    for (int i = 0; i < num; i++)
+    string[] array1 = CreateArray1(size1);
+    PrintArray(array1);
+    Console.Write(" -> ");
+    int size2 = SizeArray2Count(array1);
+    
+    if(size2>0)
+    {
+        string[] array2 = CreateArray2(array1,size2);
+        PrintArray(array2);
+    }
+    else Console.WriteLine("[]");
+}
+else Console.WriteLine("Введено некорректное число: число элементов должно быть больше нуля.");
+
+string[] CreateArray1(int size)
+{
+    string[] arr = new string[size];
+    for (int i = 0; i < size; i++)
     {
         Console.Write("Введите строку: ");
         arr[i] = Console.ReadLine();
