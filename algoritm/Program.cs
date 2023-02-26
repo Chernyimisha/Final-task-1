@@ -1,4 +1,4 @@
-﻿Console.WriteLine("Введите количество элементов массива: ");
+﻿Console.Write("Введите количество элементов массива: ");
 int size1 = Convert.ToInt32(Console.ReadLine());
 
 if(size1>0)
