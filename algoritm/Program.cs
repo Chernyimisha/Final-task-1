@@ -5,15 +5,13 @@ if(size1>0)
 {
     string[] array1 = CreateArray1(size1);
     PrintArray(array1);
+    
     Console.Write(" -> ");
+    
     int size2 = SizeArray2Count(array1);
     
-    if(size2>0)
-    {
-        string[] array2 = CreateArray2(array1,size2);
-        PrintArray(array2);
-    }
-    else Console.WriteLine("[]");
+    string[] array2 = CreateArray2(array1,size2);
+    PrintArray(array2);
 }
 else Console.WriteLine("Введено некорректное число: число элементов должно быть больше нуля.");
 
@@ -31,11 +29,15 @@ string[] CreateArray1(int size)
 void PrintArray(string[] arr)
 {
     Console.Write("[");
-    for (int i = 0; i < arr.Length; i++)
+    if(arr.Length>0)
     {
-        if (i < arr.Length - 1) Console.Write($"\"{arr[i]}\", ");
-        else Console.Write($"\"{arr[i]}\"]");
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (i < arr.Length - 1) Console.Write($"\"{arr[i]}\", ");
+            else Console.Write($"\"{arr[i]}\"]");
+        }
     }
+    else Console.Write("]");
 }
 
 int SizeArray2Count (string[] arr)
